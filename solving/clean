@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+rm a.out input output answer
