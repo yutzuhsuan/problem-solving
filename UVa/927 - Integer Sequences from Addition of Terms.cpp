@@ -1,33 +1,25 @@
 #include <stdio.h>
-#include <map>
-#include <iostream>
-using namespace std;
-
+#include <math.h>
 int main(void)
 {
-  int N, K, M, price, sum;
-  char c;
+  int t, m, d, k, n;
+  long long c[30];
+  long long ans;
+  scanf("%d", &t);
 
-  scanf("%d", &N);
-  while (N--) {
-    sum = 0;
-    map<char, int> paids; 
-    scanf("%d\n", &K);
-    for (int i = 0; i < K; i++) {
-      scanf("%c %d\n", &c, &price);
-      paids.insert(pair<char, int>(c, price));
-    }
+  while (t--) {
+    ans = 0;
+    scanf("%d", &m);
+    for (int i = 0 ; i <= m; i++)
+      scanf("%lld", &c[i]);
+    scanf("%d %d", &d, &k);
 
-    scanf("%d\n", &M);
-    while (M--) {
-      string line;
-      getline(cin, line);
-      for (int i = 0; i < line.size(); i++)
-        if (paids[line[i]])
-          sum += paids[line[i]];
-    }
+    for (n = 1; n*n+n < 2*k/d; n++);
 
-    printf("%d.%02d$\n", sum/100, sum%100);
+    for (int i = 0; i <= m; i++)
+      ans += c[i]*(long long)pow(n, i);
+
+    printf("%lld\n", ans);
   }
 
   return 0;
