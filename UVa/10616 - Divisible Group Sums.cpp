@@ -16,8 +16,8 @@ int solve() {
       for (int k = 0; k < D; k++) {
         dp[i][j][k] += dp[i-1][j][k];
         if (j) {
-          int t = (D + k - n[i-1] % D) % D; 
-          dp[i][j][k] += dp[i-1][j-1][t];
+          int x = (D + k - n[i-1] % D) % D; 
+          dp[i][j][k] += dp[i-1][j-1][x];
         }
       }
     }
